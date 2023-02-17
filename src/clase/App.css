@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+.nameDisplay{
+  font-size: 50px;
+  padding: 20px;
+  display: block;
+}
+
+.containerButtons {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+button {
+  padding: 10px;
+  font-size: 18px;
+  background-color: transparent;
+  border: solid 1px rgb(163, 163, 163);
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+button:hover{
+  box-shadow: 2px 2px 5px 0px rgb(217 214 214 / 75%);
+}
