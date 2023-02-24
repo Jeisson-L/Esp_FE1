@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 
+// @ts-ignore
 export const ContextFormulario = createContext();
 
 const initialState = {
@@ -7,6 +8,38 @@ const initialState = {
     pokemon:null,
 }
 
+/**
+ * @typedef {object} entrenador
+ * @property {string} apellido
+ * @property {string} email
+ * @property {string} nombre
+ */
+/**
+ * @typedef {object} pokemon
+ * @property {string} nombrePokemon
+ * @property {string} tipoPokemon
+ * @property {string} alturaPokemon
+ * @property {string} edadPokemon
+ */
+
+/**
+ * @typedef {object} character
+ * @property {entrenador | undefined} entrenador
+ * @property {pokemon | undefined} pokemon
+ */
+
+/**
+ * @typedef {object} action
+ * @property {string} type
+ * @property {entrenador|pokemon} payload
+ */
+
+/**
+ * 
+ * @param {character} state 
+ * @param {action} action 
+ * @returns {object}
+ */
 const formReducer = (state, action) =>{
     switch (action.type){
         case 'ACTUALIZAR_ENTRENADOR':

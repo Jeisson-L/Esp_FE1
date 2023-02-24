@@ -28,5 +28,5 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.string,
-  isEntrenador: PropTypes.bool.isRequired
+  isEntrenador: PropTypes.bool
 }
