@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "../../context/ContextoFormulario";
+import PropTypes from 'prop-types';
 
 const Input = ({ name, label, type = "text", isEntrenador }) => {
   const dispatch = useDispatch()
@@ -22,3 +23,10 @@ const Input = ({ name, label, type = "text", isEntrenador }) => {
 };
 
 export default Input;
+
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  isEntrenador: PropTypes.bool.isRequired
+}
