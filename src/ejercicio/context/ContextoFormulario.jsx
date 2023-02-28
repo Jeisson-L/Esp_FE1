@@ -1,7 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 
-// @ts-ignore
-export const ContextFormulario = createContext();
+export const ContextFormulario = createContext(undefined);
 
 const initialState = {
     entrenador:null,
@@ -38,7 +37,7 @@ const initialState = {
  * 
  * @param {character} state 
  * @param {action} action 
- * @returns {object}
+ * @returns {character}
  */
 const formReducer = (state, action) =>{
     switch (action.type){
