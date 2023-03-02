@@ -4,7 +4,10 @@ import pokebola from "../../../assets/pokebola.png";
 import entrenador from "../../../assets/entrenador.png";
 import pikachu from "../../../assets/pikachu.png";
 import Input from "../Input/Input";
+import Select from "../Input/Select";
 import Detalle from "./Detalle";
+import {getPokemonTypes} from "../../accessToAPIs/getPokemonTypes"
+import {useQuery} from 'react-query'
 
 // En este componente tenemos nuestro formulario y dentro de él
 // tenemos los componentes que necesitan consumir nuestro estado.
@@ -12,6 +15,9 @@ import Detalle from "./Detalle";
 // componentes puedan consumir un estado global.
 
 const Formulario = () => {
+  const { data } = useQuery(['pokemonTypes'], getPokemonTypes)
+  const types = data?.results || []
+
   return (
     <>
       <header className="form-header">
@@ -51,7 +57,7 @@ const Formulario = () => {
               </p>
               <Input name="nombrePokemon" label="Nombre" />
               <Input name="alturaPokemon" label="Altura" />
-              <Input name="tipoPokemon" label="Tipo" />
+              <Select name="tipoPokemon" label="Tipo" arrayData={types} isEntrenador={false} />
               <Input name="edadPokemon" label="Edad" />
             </div>
           </div>
