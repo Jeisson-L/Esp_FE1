@@ -1,6 +1,7 @@
 import { useDispatch } from "../../context/ContextoFormulario";
 
 const Select = ({name, label, arrayData, isEntrenador}) =>{
+    arrayData.some(val => val.name === "") || arrayData.unshift({name:""});
 
     const getOptions = ()=>{
         return arrayData.map((val) => { return (<option value={val.name} key={val.name}>{val.name}</option>)})
@@ -11,7 +12,7 @@ const Select = ({name, label, arrayData, isEntrenador}) =>{
     const onChange = (e) => dispatch( {
         type: isEntrenador ? "ACTUALIZAR_ENTRENADOR" : "ACTUALIZAR_POKEMON",
         payload: {[e.target.name] : e.target.value}
-      });
+    });
 
     return (
     

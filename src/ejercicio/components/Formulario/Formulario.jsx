@@ -1,23 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import pokebola from "../../../assets/pokebola.png";
-import entrenador from "../../../assets/entrenador.png";
-import pikachu from "../../../assets/pikachu.png";
-import Input from "../Input/Input";
-import Select from "../Input/Select";
 import Detalle from "./Detalle";
-import {getPokemonTypes} from "../../accessToAPIs/getPokemonTypes"
-import {useQuery} from 'react-query'
+import EntrenadorForm from "./EntrenadorForm";
+import PockemonForm from "./PockemonForm";
 
-// En este componente tenemos nuestro formulario y dentro de él
-// tenemos los componentes que necesitan consumir nuestro estado.
-// Recuerda cual es el paso que debemos tomar para que nuestros
-// componentes puedan consumir un estado global.
 
 const Formulario = () => {
-  const { data } = useQuery(['pokemonTypes'], getPokemonTypes)
-  const types = data?.results || []
-
   return (
     <>
       <header className="form-header">
@@ -36,30 +25,9 @@ const Formulario = () => {
           pokémon
         </p>
         <div className="cuerpo-formulario">
-          {/*
-           Si tan solo tuviesemos una manera de "encapsular" nuestros componentes
-           para que puedan acceder al estado global.
-          */}
           <div className="inputs">
-            <div>
-              <p className="nombre-seccion">
-                <img src={entrenador} alt="entrenador" />
-                <span>ENTRENADOR</span>
-              </p>
-              <Input name="nombre" label="Nombre" isEntrenador={true}/>
-              <Input name="apellido" label="Apellido" isEntrenador={true}/>
-              <Input name="email" label="Email" type="email" isEntrenador={true}/>
-            </div>
-            <div>
-              <p className="nombre-seccion">
-                <img src={pikachu} alt="pikachu" />
-                <span>POKEMON</span>
-              </p>
-              <Input name="nombrePokemon" label="Nombre" />
-              <Input name="alturaPokemon" label="Altura" />
-              <Select name="tipoPokemon" label="Tipo" arrayData={types} isEntrenador={false} />
-              <Input name="edadPokemon" label="Edad" />
-            </div>
+            <EntrenadorForm></EntrenadorForm>
+            <PockemonForm></PockemonForm>
           </div>
           <Detalle />
         </div>
