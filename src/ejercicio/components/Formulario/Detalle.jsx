@@ -49,7 +49,10 @@ const Detalle = () => {
           <p>Tipo:{store.pokemon?.tipoPokemon}</p>
         </div>
         <div className="fila">
-          <p>edad:{store.pokemon?.edadPokemon}</p>
+          <p>Edad:{store.pokemon?.edadPokemon}</p>
+        </div>
+        <div className="fila">
+          <p>Especie:{store.pokemon?.especiePokemon}</p>
         </div>
       </section>
       <button
