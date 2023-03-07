@@ -1,6 +1,6 @@
 import { useDispatch } from "../../context/ContextoFormulario";
 
-const Select = ({name, label, arrayData, isEntrenador}) =>{
+const Select = ({name, label, arrayData, isEntrenador, disabled}) =>{
     arrayData.some(val => val.name === "") || arrayData.unshift({name:""});
 
     const getOptions = ()=>{
@@ -18,7 +18,7 @@ const Select = ({name, label, arrayData, isEntrenador}) =>{
     
         <div className="input-contenedor">
             <label htmlFor={name}>{label}</label>
-            <select name={name} onChange={onChange}>
+            <select name={name} onChange={onChange} disabled={disabled}  >
                 {getOptions()}
             </select>
         </div>
